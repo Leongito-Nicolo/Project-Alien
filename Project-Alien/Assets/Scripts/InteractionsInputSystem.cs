@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class InteractionsInputSystem : MonoBehaviour
 {
-    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private PlayerInput _playerInput;
 
     void Awake()
     {
@@ -29,8 +29,8 @@ public class InteractionsInputSystem : MonoBehaviour
 
     public void SwitchActionMap(string name)
     {
-        playerInput.currentActionMap.Disable();
-        playerInput.SwitchCurrentActionMap(name);
-        playerInput.currentActionMap.Enable();
+        _playerInput.currentActionMap.Disable();
+        _playerInput.SwitchCurrentActionMap(name);
+        _playerInput.currentActionMap.Enable();
     }
 }

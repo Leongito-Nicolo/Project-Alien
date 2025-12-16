@@ -5,14 +5,14 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float speed = 5f;
-    public float jumpForce = 1.5f;
-    public float gravity = -9.81f;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
+    [SerializeField] private float gravity;
 
     [Header("Mouse Look")]
-    public Transform cameraTransform;
-    public float mouseSensitivity = 100f;
-    public float maxLookAngle = 80f;
+    [SerializeField] private Transform _cameraTransform;
+    [SerializeField] private float _mouseSensitivity;
+    [SerializeField] private float _maxLookAngle;
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -29,13 +29,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
+        float mouseX = lookInput.x * _mouseSensitivity * Time.deltaTime;
+        float mouseY = lookInput.y * _mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -maxLookAngle, maxLookAngle);
+        xRotation = Mathf.Clamp(xRotation, -_maxLookAngle, _maxLookAngle);
 
-        cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        _cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
         verticalVelocity += gravity * Time.deltaTime;
 
-        Vector3 velocity = move * speed + Vector3.up * verticalVelocity;
+        Vector3 velocity = move * _speed + Vector3.up * verticalVelocity;
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed && controller.isGrounded)
-            verticalVelocity = Mathf.Sqrt(jumpForce * -2f * gravity);
+            verticalVelocity = Mathf.Sqrt(_jumpForce * -2f * gravity);
     }
 }
 

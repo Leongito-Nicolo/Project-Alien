@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,7 +41,8 @@ public class SelectPOI : MonoBehaviour
                 RectTransform rt = poi.GetComponent<RectTransform>();
                 if (RectOverlaps(rt, _centerRect))
                 {
-                    // Debug.Log(poi.name);
+                    poi.GetComponent<Image>().color = Color.green;
+                    GameManager.Instance.target = poi.GetComponent<GenerateRandomObject>().GetRandomPoint();
                 }
             }
         }
