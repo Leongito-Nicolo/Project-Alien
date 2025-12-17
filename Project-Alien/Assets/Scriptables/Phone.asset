@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Phone
   m_EditorClassIdentifier: Assembly-CSharp::PointOfInterest
   objectToRetrieve: {fileID: 0}
-  targetTemperature: 0
-  targetPressure: 0
+  targetTemperature: 90
+  targetPressure: 12

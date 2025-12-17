@@ -421,6 +421,34 @@
             ]
         },
         {
+            "name": "Cleaning",
+            "id": "dab6ece4-c196-4ff2-b491-e8002a8dc709",
+            "actions": [
+                {
+                    "name": "Esc From PC",
+                    "type": "Button",
+                    "id": "0f4a03c5-0036-4ca5-85df-c69055874f9c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "26dc1b78-7d50-48b7-becb-778803d0bf06",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esc From PC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "272f6d14-89ba-496f-b7ff-215263d3219f",
             "actions": [
@@ -794,7 +822,7 @@
                 {
                     "name": "",
                     "id": "82627dcc-3b13-4ba9-841d-e4b746d6553e",
-                    "path": "*/{Cancel}",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",

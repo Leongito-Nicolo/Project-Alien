@@ -6,12 +6,23 @@ public class ScrollViewMovement : MonoBehaviour
 {
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private float _speed = .5f;
+    [SerializeField] private GameObject _screenSaver;
     private bool shouldMove = false;
     private float xValue;
     private float yValue;
 
     void Update()
     {
+        if (!GameManager.Instance.target)
+        {
+            _screenSaver.SetActive(false);
+        }
+        else
+        {
+            _screenSaver.SetActive(true);
+            return;
+        }
+
         if (!shouldMove) return;
 
         MoveScreen();

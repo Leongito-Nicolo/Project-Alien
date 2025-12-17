@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _mouseSensitivity;
     [SerializeField] private float _maxLookAngle;
 
+
+    [Header("Reach Distance")]
+    [SerializeField] private int maxDistance;
+
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -63,6 +67,17 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && controller.isGrounded)
             verticalVelocity = Mathf.Sqrt(_jumpForce * -2f * gravity);
+    }
+
+    public string CheckInteraction()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
+        {
+            return hit.transform.tag;
+        }
+
+        return null;
     }
 }
 
