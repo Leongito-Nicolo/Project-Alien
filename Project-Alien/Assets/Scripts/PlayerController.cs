@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     public string CheckInteraction()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
+        if (Physics.Raycast(_cameraTransform.position, _cameraTransform.forward, out hit, maxDistance))
         {
             return hit.transform.tag;
         }

@@ -43,6 +43,7 @@ public class SelectPOI : MonoBehaviour
                 {
                     poi.GetComponent<Image>().color = Color.green;
                     GameManager.Instance.target = poi.GetComponent<GenerateRandomObject>().GetRandomPoint();
+                    // TODO delete POI
                 }
             }
         }

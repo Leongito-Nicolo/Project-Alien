@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    // TODO use events instead of GameManager
     [HideInInspector] public PointOfInterest target = null;
 
     private void Awake()

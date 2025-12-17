@@ -51,11 +51,15 @@ public class HandleCleaning : MonoBehaviour
 
     public void SetValues()
     {
-        // TODO reset sliders and delete POI
         _status.gameObject.SetActive(false);
+
         _temperatureSlider.maxValue = 100;
+        _temperatureSlider.value = _temperatureSlider.minValue;
         _temperatureTargetText.text = $"{GameManager.Instance.target.targetTemperature}%";
+
         _pressureInputSlider.maxValue = 100;
+        _pressureInputSlider.value = _pressureInputSlider.minValue;
+
         _pressureOutputSlider.maxValue = 100;
         _pressureOutputSlider.value = _pressureOutputSlider.maxValue;
 
@@ -87,7 +91,6 @@ public class HandleCleaning : MonoBehaviour
     public void ChangePressureSlider()
     {
         _pressureOutputSlider.value = _pressureInputSlider.maxValue - _pressureInputSlider.value;
-        _currentTemperatureText.text = $"{_temperatureSlider.value}%";
     }
 
     public void ChangeTemperatureText()
@@ -105,5 +108,6 @@ public class HandleCleaning : MonoBehaviour
         _screenSaver.SetActive(true);
         // change model
         GameManager.Instance.target = null;
+        hasSetValues = false;
     }
 }
