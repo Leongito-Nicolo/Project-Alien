@@ -815,11 +815,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1910435943959986412, guid: 779195c0001aab94485e4f043ab2d972, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 44a60c1c000d6d749a4a89e2fbd045ec, type: 2}
     - target: {fileID: 919132149155446097, guid: 779195c0001aab94485e4f043ab2d972, type: 3}
       propertyPath: m_Name
       value: SM_Workstation
       objectReference: {fileID: 0}
     - target: {fileID: 2793785902943762675, guid: 779195c0001aab94485e4f043ab2d972, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 44a60c1c000d6d749a4a89e2fbd045ec, type: 2}
+    - target: {fileID: 8438922446067210587, guid: 779195c0001aab94485e4f043ab2d972, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 44a60c1c000d6d749a4a89e2fbd045ec, type: 2}
