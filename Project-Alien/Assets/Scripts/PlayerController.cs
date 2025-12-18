@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     private float verticalVelocity;
     private float xRotation = 0f;
+    private bool isOnPc = false;
 
     void Awake()
     {
@@ -67,6 +68,37 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && controller.isGrounded)
             verticalVelocity = Mathf.Sqrt(_jumpForce * -2f * gravity);
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (!isOnPc)
+            {
+                string interaction = CheckInteraction();
+                if (interaction == "Scanner")
+                {
+                    InputManager.Instance.SwitchActionMap("PC");
+                    isOnPc = true;
+                }
+                else if (interaction == "Cleaning")
+                {
+                    InputManager.Instance.SwitchActionMap("Cleaning");
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    isOnPc = true;
+                }
+            }
+            else
+            {
+                InputManager.Instance.SwitchActionMap("Player");
+                isOnPc = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+
+        }
     }
 
     public string CheckInteraction()

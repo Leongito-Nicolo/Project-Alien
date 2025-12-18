@@ -4,6 +4,12 @@ using UnityEngine;
 public class PointOfInterest : ScriptableObject
 {
     public GameObject objectToRetrieve;
+    public Material cleanTexture;
     public int targetTemperature;
     public int targetPressure;
+
+    public void CleanObject(GameObject obj)
+    {
+        obj.GetComponent<MeshRenderer>().material = cleanTexture;
+    }
 }

@@ -1132,7 +1132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb6b6b761287c944b2994aa14e9f2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  target: {fileID: 0}
 --- !u!4 &505325284
 Transform:
   m_ObjectHideFlags: 0
@@ -2871,7 +2870,7 @@ GameObject:
   - component: {fileID: 1420464478}
   - component: {fileID: 1420464480}
   m_Layer: 0
-  m_Name: Input System
+  m_Name: Input Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2936,9 +2935,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/DualSenseGamepadHID/rightStick,/Mouse/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1420464480}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EnterToPC
+      - m_Target: {fileID: 1998566552}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3044,9 +3043,9 @@ MonoBehaviour:
     m_ActionName: 'PC/Move Screen[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1420464480}
-        m_TargetAssemblyTypeName: InputSystem, Assembly-CSharp
-        m_MethodName: EscFromPC
+      - m_Target: {fileID: 1998566552}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3060,9 +3059,9 @@ MonoBehaviour:
     m_ActionName: 'PC/Esc From PC[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1420464480}
-        m_TargetAssemblyTypeName: InteractionsInputSystem, Assembly-CSharp
-        m_MethodName: EscFromPC
+      - m_Target: {fileID: 1998566552}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3107,7 +3106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _playerInput: {fileID: 1420464478}
-  _player: {fileID: 1998566552}
 --- !u!1 &1478289136
 GameObject:
   m_ObjectHideFlags: 0

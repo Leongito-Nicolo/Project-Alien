@@ -4,14 +4,15 @@ using UnityEngine;
 public class GenerateRandomObject : MonoBehaviour
 {
     [SerializeField] private List<PointOfInterest> objects = new();
+    [SerializeField] private Vector3 location;
 
     public PointOfInterest GetRandomPoint()
     {
         return objects[Random.Range(0, objects.Count)];
     }
 
-    public void SpawnObjectAtLocation(PointOfInterest point, Vector3 location)
+    public GameObject SpawnObjectAtLocation(PointOfInterest point)
     {
-        Instantiate(point.objectToRetrieve, location, Quaternion.identity);
+        return Instantiate(point.objectToRetrieve, location, Quaternion.identity);
     }
 }
