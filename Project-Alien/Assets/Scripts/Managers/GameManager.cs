@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [HideInInspector] public PointOfInterest target = null;
+    // TODO use events instead of GameManager
 
     private void Awake()
     {
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 
 
 }

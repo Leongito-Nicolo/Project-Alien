@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     private float verticalVelocity;
     private float xRotation = 0f;
+    private bool isOnPc = false;
+    private bool canSell = false;
+    private int playerMoney = 0;
+    private int moneyToAdd = 0;
 
     void Awake()
     {
@@ -53,6 +58,16 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+    void OnEnable()
+    {
+        EventManager.OnEndCleaning += EnableSelling;
+    }
+
+    void OnDisable()
+    {
+        EventManager.OnEndCleaning -= EnableSelling;
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -69,15 +84,64 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = Mathf.Sqrt(_jumpForce * -2f * gravity);
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (!isOnPc)
+            {
+                string interaction = CheckInteraction();
+                if (interaction == "Scanner")
+                {
+                    InputManager.Instance.SwitchActionMap("PC");
+                    isOnPc = true;
+                }
+                else if (interaction == "Cleaning")
+                {
+                    InputManager.Instance.SwitchActionMap("Cleaning");
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    isOnPc = true;
+                }
+                else if (interaction == "Table")
+                {
+                    if (!canSell) return;
+
+                    playerMoney += moneyToAdd;
+                    UIManager.Instance.UpdateMoney(playerMoney);
+                    moneyToAdd = 0;
+                    EventManager.DestroyObject();
+
+                    canSell = false;
+                    EventManager.SetTarget(null);
+                }
+            }
+            else
+            {
+                InputManager.Instance.SwitchActionMap("Player");
+                isOnPc = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+
+        }
+    }
+
     public string CheckInteraction()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
+        if (Physics.Raycast(_cameraTransform.position, _cameraTransform.forward, out hit, maxDistance))
         {
             return hit.transform.tag;
         }
 
         return null;
+    }
+
+    public void EnableSelling(int moneyEarned)
+    {
+        canSell = true;
+        moneyToAdd = moneyEarned;
     }
 }
 

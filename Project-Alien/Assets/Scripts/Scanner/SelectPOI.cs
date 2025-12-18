@@ -42,7 +42,9 @@ public class SelectPOI : MonoBehaviour
                 if (RectOverlaps(rt, _centerRect))
                 {
                     poi.GetComponent<Image>().color = Color.green;
-                    GameManager.Instance.target = poi.GetComponent<GenerateRandomObject>().GetRandomPoint();
+                    var signal = poi.GetComponent<GenerateRandomObject>();
+                    EventManager.SetTarget(signal);
+                    return;
                 }
             }
         }

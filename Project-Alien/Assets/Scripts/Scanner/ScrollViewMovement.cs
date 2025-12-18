@@ -13,19 +13,31 @@ public class ScrollViewMovement : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.target)
+        if (!shouldMove || _screenSaver.activeSelf) return;
+
+        MoveScreen();
+    }
+
+    void OnEnable()
+    {
+        EventManager.OnSetTarget += SetScreen;
+    }
+
+    void OnDisable()
+    {
+        EventManager.OnSetTarget -= SetScreen;
+    }
+
+    public void SetScreen(GenerateRandomObject point)
+    {
+        if (!point)
         {
             _screenSaver.SetActive(false);
         }
         else
         {
             _screenSaver.SetActive(true);
-            return;
         }
-
-        if (!shouldMove) return;
-
-        MoveScreen();
     }
 
     public void MoveScreen(InputAction.CallbackContext context)
