@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7411e97b9eaac646b13f3fc22fba8be, type: 3}
   m_Name: Phone
   m_EditorClassIdentifier: Assembly-CSharp::PointOfInterest
-  objectToRetrieve: {fileID: 4032438780202137890, guid: b89db74d500f34947a074d4587866f85, type: 3}
-  cleanTexture: {fileID: 2100000, guid: fae8e95dc62bff641980ac34684a1d18, type: 2}
+  objectToRetrieve: {fileID: 1117843567155595579, guid: b3e834bcb981fe54b980f9b7470507d6, type: 3}
+  cleanTexture: {fileID: 2100000, guid: 6716ad4e6278f1b43a714816afad973a, type: 2}
   targetTemperature: 90
   targetPressure: 12
-  position: {x: 2, y: 0, z: 5}
+  valueOnSell: 10

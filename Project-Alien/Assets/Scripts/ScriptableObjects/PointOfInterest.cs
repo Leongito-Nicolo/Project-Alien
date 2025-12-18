@@ -7,6 +7,7 @@ public class PointOfInterest : ScriptableObject
     public Material cleanTexture;
     public int targetTemperature;
     public int targetPressure;
+    public int valueOnSell;
 
     public void CleanObject(GameObject obj)
     {

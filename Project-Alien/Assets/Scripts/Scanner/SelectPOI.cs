@@ -44,8 +44,7 @@ public class SelectPOI : MonoBehaviour
                     poi.GetComponent<Image>().color = Color.green;
                     var signal = poi.GetComponent<GenerateRandomObject>();
                     EventManager.SetTarget(signal);
-
-                    // TODO delete POI and use events
+                    return;
                 }
             }
         }

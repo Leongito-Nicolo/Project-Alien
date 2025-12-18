@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -30,11 +31,13 @@ public class HandleCleaning : MonoBehaviour
     void OnEnable()
     {
         EventManager.OnSetTarget += StartCleaningMinigame;
+        EventManager.OnDestroyObject += DestroyObject;
     }
 
     void OnDisable()
     {
         EventManager.OnSetTarget -= StartCleaningMinigame;
+        EventManager.OnDestroyObject -= DestroyObject;
     }
 
     void Update()
@@ -132,7 +135,12 @@ public class HandleCleaning : MonoBehaviour
         target.CleanObject(objToClean);
 
         Destroy(pointObj);
-        EventManager.SetTarget(null);
+        EventManager.EndCleaning(target.valueOnSell);
         hasSetValues = false;
+    }
+
+    private void DestroyObject()
+    {
+        Destroy(objToClean);
     }
 }

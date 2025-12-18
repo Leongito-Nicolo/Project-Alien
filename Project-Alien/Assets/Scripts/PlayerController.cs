@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocity;
     private float xRotation = 0f;
     private bool isOnPc = false;
+    private bool canSell = false;
+    private int playerMoney = 0;
+    private int moneyToAdd = 0;
 
     void Awake()
     {
@@ -52,6 +56,16 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = move * _speed + Vector3.up * verticalVelocity;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void OnEnable()
+    {
+        EventManager.OnEndCleaning += EnableSelling;
+    }
+
+    void OnDisable()
+    {
+        EventManager.OnEndCleaning -= EnableSelling;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -89,6 +103,18 @@ public class PlayerController : MonoBehaviour
                     Cursor.visible = true;
                     isOnPc = true;
                 }
+                else if (interaction == "Table")
+                {
+                    if (!canSell) return;
+
+                    playerMoney += moneyToAdd;
+                    UIManager.Instance.UpdateMoney(playerMoney);
+                    moneyToAdd = 0;
+                    EventManager.DestroyObject();
+
+                    canSell = false;
+                    EventManager.SetTarget(null);
+                }
             }
             else
             {
@@ -110,6 +136,12 @@ public class PlayerController : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void EnableSelling(int moneyEarned)
+    {
+        canSell = true;
+        moneyToAdd = moneyEarned;
     }
 }
 
