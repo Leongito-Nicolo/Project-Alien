@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   objects:
   - {fileID: 11400000, guid: 90b51669f0f10c04eb0b7239d813247a, type: 2}
-  location: {x: 8.28, y: 1.524, z: -0.06}
+  location: {x: -7.1, y: 0.235, z: -5.259}
