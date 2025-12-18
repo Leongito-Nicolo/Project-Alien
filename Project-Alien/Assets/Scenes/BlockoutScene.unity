@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 87a8e26077808934aab5d9adbb30fbff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 93e08e116cb413640a935a445e79dc65, type: 2}
     - target: {fileID: 919132149155446097, guid: 87a8e26077808934aab5d9adbb30fbff, type: 3}
       propertyPath: m_Name
       value: SM_Chair
@@ -693,6 +697,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 492fc2bb0ec3bc442ab7141ab972fae1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7835dcc7f11a4c840994571138d07753, type: 2}
     - target: {fileID: 919132149155446097, guid: 492fc2bb0ec3bc442ab7141ab972fae1, type: 3}
       propertyPath: m_Name
       value: SM_Platform
@@ -811,6 +819,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Workstation
       objectReference: {fileID: 0}
+    - target: {fileID: 2793785902943762675, guid: 779195c0001aab94485e4f043ab2d972, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 44a60c1c000d6d749a4a89e2fbd045ec, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1058,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4787cea4d2af3be4791ff4bfab8b9283, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.08
+      value: -12.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4787cea4d2af3be4791ff4bfab8b9283, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1629,7 +1641,7 @@ Transform:
   m_GameObject: {fileID: 1245345189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -1.92, y: 4.97, z: -38.19}
+  m_LocalPosition: {x: -1.92, y: 4.97, z: 0.96}
   m_LocalScale: {x: 3.3521, y: 1, z: 3.4105356}
   m_ConstrainProportionsScale: 0
   m_Children: []
