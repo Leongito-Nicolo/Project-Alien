@@ -143,4 +143,10 @@ public class HandleCleaning : MonoBehaviour
     {
         Destroy(objToClean);
     }
+
+    public void EnableBarMovement(bool enable)
+    {
+        _pressureInputSlider.enabled = enable;
+        _temperatureSlider.enabled = enable;
+    }
 }

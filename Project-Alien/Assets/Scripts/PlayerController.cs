@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    public HandleCleaning cleaningObject;
     [Header("Movement")]
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
@@ -99,6 +100,7 @@ public class PlayerController : MonoBehaviour
                 else if (interaction == "Cleaning")
                 {
                     InputManager.Instance.SwitchActionMap("Cleaning");
+                    if(cleaningObject)cleaningObject.EnableBarMovement(true);
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                     isOnPc = true;
@@ -119,6 +121,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 InputManager.Instance.SwitchActionMap("Player");
+                if(cleaningObject)cleaningObject.EnableBarMovement(false);
                 isOnPc = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
