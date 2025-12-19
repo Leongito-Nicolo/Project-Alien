@@ -13,6 +13,6 @@ public class GenerateRandomObject : MonoBehaviour
 
     public GameObject SpawnObjectAtLocation(PointOfInterest point)
     {
-        return Instantiate(point.objectToRetrieve, location, Quaternion.identity);
+        return Instantiate(point.objectToRetrieve, location, point.objectToRetrieve.transform.rotation);
     }
 }
