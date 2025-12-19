@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7411e97b9eaac646b13f3fc22fba8be, type: 3}
   m_Name: Cube
   m_EditorClassIdentifier: Assembly-CSharp::PointOfInterest
-  objectToRetrieve: {fileID: 1117843567155595579, guid: b3e834bcb981fe54b980f9b7470507d6, type: 3}
+  objectToRetrieve: {fileID: 8295728596236127886, guid: 2110b2dc7de118a45a36df19e4f5442f, type: 3}
   cleanTexture: {fileID: 2100000, guid: 6716ad4e6278f1b43a714816afad973a, type: 2}
-  targetTemperature: 90
-  targetPressure: 12
-  valueOnSell: 10
+  targetTemperature: 9
+  targetPressure: 4
+  valueOnSell: 167
